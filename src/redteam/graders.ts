@@ -1,4 +1,5 @@
 import { AegisGrader } from './plugins/aegis';
+import { AgentHarmBenchGrader } from './plugins/agentharmbench';
 import { REDTEAM_MEMORY_POISONING_PLUGIN_ID } from './plugins/agentic/constants';
 import { MemoryPoisoningPluginGrader } from './plugins/agentic/memoryPoisoning';
 import { AsciiSmugglingGrader } from './plugins/asciiSmuggling';
@@ -125,6 +126,7 @@ import type { RedteamAssertionTypes } from './types';
 export const GRADERS: Record<RedteamAssertionTypes, RedteamGraderBase> = {
   [REDTEAM_MEMORY_POISONING_PLUGIN_ID]: new MemoryPoisoningPluginGrader(),
   'promptfoo:redteam:aegis': new AegisGrader(),
+  'promptfoo:redteam:agentharmbench': new AgentHarmBenchGrader(),
   'promptfoo:redteam:ascii-smuggling': new AsciiSmugglingGrader(),
   'promptfoo:redteam:beavertails': new BeavertailsGrader(),
   'promptfoo:redteam:bfla': new BflaGrader(),

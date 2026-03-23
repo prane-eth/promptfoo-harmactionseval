@@ -6,6 +6,7 @@ import type { Strategy } from './strategies';
 export const subCategoryDescriptions: Record<Plugin | Strategy, string> = {
   ['agentic:memory-poisoning']: 'Tests whether an agent is vulnerable to memory poisoning attacks',
   aegis: "Tests content safety handling using NVIDIA's Aegis dataset",
+  agentharmbench: 'Tests agent action safety using the AgentHarmBench benchmark',
   'ascii-smuggling': 'Tests vulnerability to Unicode tag-based instruction smuggling attacks',
   audio: 'Tests handling of audio content',
   'authoritative-markup-injection': 'Tests vulnerability to authoritative markup injection attacks',
@@ -240,6 +241,7 @@ export const subCategoryDescriptions: Record<Plugin | Strategy, string> = {
 export const displayNameOverrides: Record<Plugin | Strategy, string> = {
   ['agentic:memory-poisoning']: 'Agentic Memory Poisoning',
   aegis: 'Aegis Dataset',
+  agentharmbench: 'AgentHarmBench',
   'ascii-smuggling': 'ASCII Smuggling',
   audio: 'Audio Content',
   'authoritative-markup-injection': 'Authoritative Markup Injection',
@@ -457,6 +459,7 @@ export const severityRiskScores: Record<Severity, number> = {
 export const riskCategorySeverityMap: Record<Plugin, Severity> = {
   ['agentic:memory-poisoning']: Severity.High,
   aegis: Severity.Medium,
+  agentharmbench: Severity.High,
   'ascii-smuggling': Severity.Low,
   beavertails: Severity.Low,
   bfla: Severity.High,
@@ -751,6 +754,7 @@ export const riskCategories: Record<string, Plugin[]> = {
 
   Datasets: [
     'aegis',
+    'agentharmbench',
     'beavertails',
     'cyberseceval',
     'donotanswer',
@@ -791,6 +795,7 @@ export const categoryLabels = Object.keys(categoryMapReverse);
 export const categoryAliases: Record<Plugin, string> = {
   ['agentic:memory-poisoning']: 'AgenticMemoryPoisoning',
   aegis: 'Aegis',
+  agentharmbench: 'AgentHarmBench',
   'ascii-smuggling': 'AsciiSmuggling',
   beavertails: 'BeaverTails',
   bfla: 'BFLAEnforcement',
@@ -950,6 +955,8 @@ export const categoryAliasesReverse = Object.entries(categoryAliases).reduce(
 export const pluginDescriptions: Record<Plugin, string> = {
   ['agentic:memory-poisoning']: 'Tests whether an agent is vulnerable to memory poisoning attacks',
   aegis: "Tests content safety handling using NVIDIA's Aegis dataset",
+  agentharmbench:
+    'Evaluates whether an agent attempts harmful tool calls when presented with action-level safety probes from the AgentHarmBench benchmark',
   'ascii-smuggling': 'Tests for ASCII-based prompt smuggling vulnerabilities',
   beavertails: 'Tests handling of malicious prompts from the BeaverTails dataset',
   bfla: 'Evaluates function-level authorization controls to identify privilege escalation vulnerabilities (OWASP API Security Top 10 #5)',

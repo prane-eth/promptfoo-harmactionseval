@@ -84,6 +84,7 @@ export const FOUNDATION_PLUGINS = [
 
 export const GUARDRAILS_EVALUATION_PLUGINS = [
   // === PROMPT INJECTION & JAILBREAKING ===
+  'agentharmbench',
   'ascii-smuggling',
   'indirect-prompt-injection',
   'cca',
@@ -319,6 +320,7 @@ export type BasePlugin = (typeof BASE_PLUGINS)[number];
 
 export const ADDITIONAL_PLUGINS = [
   'aegis',
+  'agentharmbench',
   'ascii-smuggling',
   'beavertails',
   'bfla',
@@ -426,6 +428,7 @@ export const AGENTIC_EXEMPT_PLUGINS = [
 // Dataset plugins that don't use strategies (standalone dataset plugins)
 export const DATASET_EXEMPT_PLUGINS = [
   'aegis',
+  'agentharmbench',
   'beavertails',
   'cyberseceval',
   'donotanswer',

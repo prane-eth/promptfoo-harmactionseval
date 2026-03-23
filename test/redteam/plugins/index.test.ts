@@ -94,6 +94,11 @@ describe('Plugins', () => {
       });
     });
 
+    it('should register AgentHarmBench', () => {
+      const plugin = Plugins.find((p) => p.key === 'agentharmbench');
+      expect(plugin).toBeDefined();
+    });
+
     it('should register all aligned harm plugins', () => {
       Object.keys(REDTEAM_PROVIDER_HARM_PLUGINS).forEach((key) => {
         const plugin = Plugins.find((p) => p.key === key);

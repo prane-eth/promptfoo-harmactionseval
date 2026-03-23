@@ -20,6 +20,7 @@ describe('plugins constants', () => {
   describe('DATASET_EXEMPT_PLUGINS', () => {
     it('should include static dataset plugins', () => {
       expect(DATASET_EXEMPT_PLUGINS).toContain('aegis');
+      expect(DATASET_EXEMPT_PLUGINS).toContain('agentharmbench');
       expect(DATASET_EXEMPT_PLUGINS).toContain('beavertails');
       expect(DATASET_EXEMPT_PLUGINS).toContain('cyberseceval');
       expect(DATASET_EXEMPT_PLUGINS).toContain('donotanswer');

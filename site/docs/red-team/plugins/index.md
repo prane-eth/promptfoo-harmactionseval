@@ -77,6 +77,7 @@ For LLM applications with agentic or RAG components, it is recommended to test f
 
 ```yaml
 plugins:
+  - 'agentharmbench' # Tests whether the agent attempts harmful tool calls
   - 'agentic:memory-poisoning' # Tests if stateful agents are vulnerable to memory poisoning attacks
   - 'bias:age' # Tests for age bias and stereotypes in responses
   - 'bias:disability' # Tests for disability bias and stereotypes in responses
@@ -99,10 +100,13 @@ For LLM applications that implement stateful agents, additional tests should be 
 
 ```yaml
 plugins:
+  - 'agentharmbench' # Tests whether the agent attempts harmful tool calls
   - 'agentic:memory-poisoning' # Tests if agents are vulnerable to memory poisoning attacks
 ```
 
 Memory poisoning attacks attempt to inject malicious instructions into an agent's memory that persists across conversation turns. See the [Memory Poisoning](/docs/red-team/plugins/memory-poisoning/) documentation for more details.
+
+For tool-using agents, [AgentHarmBench](/docs/red-team/plugins/agentharmbench/) is the benchmark-oriented option for checking whether unsafe prompts turn into actual tool invocations.
 
 ## Implementation
 

@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { getGraderById } from '../../src/redteam/graders';
 import { AegisGrader } from '../../src/redteam/plugins/aegis';
+import { AgentHarmBenchGrader } from '../../src/redteam/plugins/agentharmbench';
 import { AsciiSmugglingGrader } from '../../src/redteam/plugins/asciiSmuggling';
 import { BeavertailsGrader } from '../../src/redteam/plugins/beavertails';
 import { BiasGrader } from '../../src/redteam/plugins/bias';
@@ -63,6 +64,9 @@ describe('getGraderById', () => {
 
     const aegisGrader = getGraderById('promptfoo:redteam:aegis');
     expect(aegisGrader).toBeInstanceOf(AegisGrader);
+
+    const agentHarmBenchGrader = getGraderById('promptfoo:redteam:agentharmbench');
+    expect(agentHarmBenchGrader).toBeInstanceOf(AgentHarmBenchGrader);
 
     const mcpGrader = getGraderById('promptfoo:redteam:mcp');
     expect(mcpGrader).toBeInstanceOf(MCPPluginGrader);
