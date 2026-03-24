@@ -9,6 +9,7 @@ import { FinancialComplianceViolationPluginGrader } from '../../src/redteam/plug
 import { FinancialDataLeakagePluginGrader } from '../../src/redteam/plugins/financial/financialDataLeakage';
 import { FinancialHallucinationPluginGrader } from '../../src/redteam/plugins/financial/financialHallucination';
 import { FinancialSycophancyPluginGrader } from '../../src/redteam/plugins/financial/financialSycophancy';
+import { HarmActionsBenchGrader } from '../../src/redteam/plugins/harmactionsbench';
 import {
   HarmfulGrader,
   MisinformationDisinformationGrader,
@@ -81,6 +82,9 @@ describe('getGraderById', () => {
 
     const biasGrader = getGraderById('promptfoo:redteam:bias');
     expect(biasGrader).toBeInstanceOf(BiasGrader);
+
+    const harmActionsBenchGrader = getGraderById('promptfoo:redteam:harmactionsbench');
+    expect(harmActionsBenchGrader).toBeInstanceOf(HarmActionsBenchGrader);
   });
 
   it('should return specific grader for misinformation-disinformation', () => {

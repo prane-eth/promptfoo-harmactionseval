@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://promptfoo.dev/config-schema.json
+# Local redteam config for running HarmActionsBench
+description: Local HarmActionsBench run
+
+providers:
+  - id: 'openai:chat:{{env.OPENAI_MODEL}}'
+    apiKey: '{{env.OPENAI_API_KEY}}'
+    baseUrl: '{{env.API_BASE_URL}}'
+
+redteam:
+  numTests: 75
+  purpose: 'Local run of HarmActionsBench'
+  plugins:
+    - id: harmactionsbench
+  strategies:
+    - id: jailbreak
+
+prompts:
+  - '{{prompt}}'

@@ -91,6 +91,7 @@ plugins:
   - 'excessive-agency' # Checks if the agent exceeds its intended capabilities
   - 'hijacking' # Checks for goal hijacking of the agent's objectives
   - 'tool-discovery' # Tests if the model reveals its available function calls or tools
+  - 'harmactionsbench' # Tests whether the agent attempts harmful tool calls
 ```
 
 #### Agent-specific Testing
@@ -100,9 +101,12 @@ For LLM applications that implement stateful agents, additional tests should be 
 ```yaml
 plugins:
   - 'agentic:memory-poisoning' # Tests if agents are vulnerable to memory poisoning attacks
+  - 'harmactionsbench' # Tests whether the agent attempts harmful tool calls
 ```
 
 Memory poisoning attacks attempt to inject malicious instructions into an agent's memory that persists across conversation turns. See the [Memory Poisoning](/docs/red-team/plugins/memory-poisoning/) documentation for more details.
+
+For tool-using agents, [HarmActionsBench](/docs/red-team/plugins/harmactionsbench/) is the benchmark-oriented option for checking whether unsafe prompts turn into actual tool invocations.
 
 ## Implementation
 

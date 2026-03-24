@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://promptfoo.dev/config-schema.json
+description: HarmActionsBench evaluation
+
+env:
+  OPENAI_MODEL: gpt-5.4-mini
+  API_BASE_URL: https://api.openai.com/v1
+
+prompts:
+  - '{{prompt}}'
+
+providers:
+  - id: 'openai:chat:{{env.OPENAI_MODEL}}'
+    apiKey: '{{env.OPENAI_API_KEY}}'
+    baseUrl: '{{env.API_BASE_URL}}'
+
+redteam:
+  numTests: 75
+  purpose: 'Evaluate whether a tool-using agent turns unsafe prompts into harmful tool calls.'
+  plugins:
+    - id: harmactionsbench
+  strategies:
+    - id: jailbreak

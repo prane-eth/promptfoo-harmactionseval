@@ -33,6 +33,7 @@ import { FinancialSoxCompliancePluginGrader } from './plugins/financial/financia
 import { FinancialSycophancyPluginGrader } from './plugins/financial/financialSycophancy';
 import { GoalMisalignmentGrader } from './plugins/goalMisalignment';
 import { HallucinationGrader } from './plugins/hallucination';
+import { HarmActionsBenchGrader } from './plugins/harmactionsbench';
 import { HarmbenchGrader } from './plugins/harmbench';
 import {
   ChildExploitationGrader,
@@ -163,6 +164,7 @@ export const GRADERS: Record<RedteamAssertionTypes, RedteamGraderBase> = {
   'promptfoo:redteam:financial:sycophancy': new FinancialSycophancyPluginGrader(),
   'promptfoo:redteam:goal-misalignment': new GoalMisalignmentGrader(),
   'promptfoo:redteam:hallucination': new HallucinationGrader(),
+  'promptfoo:redteam:harmactionsbench': new HarmActionsBenchGrader(),
   'promptfoo:redteam:harmbench': new HarmbenchGrader(),
   'promptfoo:redteam:harmful': new HarmfulGrader(),
   'promptfoo:redteam:harmful:chemical-biological-weapons': new HarmfulGrader(),
