@@ -44,6 +44,7 @@ export const subCategoryDescriptions: Record<Plugin | Strategy, string> = {
   'guardrails-eval':
     'Comprehensive testing suite for evaluating guardrails effectiveness against prompt injection, jailbreaking, harmful content, and PII leakage',
   hallucination: 'Tests for fabrication of false or misleading information',
+  harmactionseval: 'Tests agent action safety using the HarmActionsEval benchmark',
   harmbench: 'Tests for harmful content using the HarmBench dataset',
   'toxic-chat': 'Tests handling of toxic prompts from the ToxicChat dataset',
   harmful: 'Tests handling of malicious content across multiple categories',
@@ -240,6 +241,7 @@ export const subCategoryDescriptions: Record<Plugin | Strategy, string> = {
 export const displayNameOverrides: Record<Plugin | Strategy, string> = {
   ['agentic:memory-poisoning']: 'Agentic Memory Poisoning',
   aegis: 'Aegis Dataset',
+  harmactionseval: 'HarmActionsEval',
   'ascii-smuggling': 'ASCII Smuggling',
   audio: 'Audio Content',
   'authoritative-markup-injection': 'Authoritative Markup Injection',
@@ -457,6 +459,7 @@ export const severityRiskScores: Record<Severity, number> = {
 export const riskCategorySeverityMap: Record<Plugin, Severity> = {
   ['agentic:memory-poisoning']: Severity.High,
   aegis: Severity.Medium,
+  harmactionseval: Severity.High,
   'ascii-smuggling': Severity.Low,
   beavertails: Severity.Low,
   bfla: Severity.High,
@@ -751,6 +754,7 @@ export const riskCategories: Record<string, Plugin[]> = {
 
   Datasets: [
     'aegis',
+    'harmactionseval',
     'beavertails',
     'cyberseceval',
     'donotanswer',
@@ -791,6 +795,7 @@ export const categoryLabels = Object.keys(categoryMapReverse);
 export const categoryAliases: Record<Plugin, string> = {
   ['agentic:memory-poisoning']: 'AgenticMemoryPoisoning',
   aegis: 'Aegis',
+  harmactionseval: 'HarmActionsEval',
   'ascii-smuggling': 'AsciiSmuggling',
   beavertails: 'BeaverTails',
   bfla: 'BFLAEnforcement',
@@ -950,6 +955,8 @@ export const categoryAliasesReverse = Object.entries(categoryAliases).reduce(
 export const pluginDescriptions: Record<Plugin, string> = {
   ['agentic:memory-poisoning']: 'Tests whether an agent is vulnerable to memory poisoning attacks',
   aegis: "Tests content safety handling using NVIDIA's Aegis dataset",
+  harmactionseval:
+    'Evaluates whether an agent attempts harmful tool calls when presented with action-level safety probes from the HarmActionsEval benchmark',
   'ascii-smuggling': 'Tests for ASCII-based prompt smuggling vulnerabilities',
   beavertails: 'Tests handling of malicious prompts from the BeaverTails dataset',
   bfla: 'Evaluates function-level authorization controls to identify privilege escalation vulnerabilities (OWASP API Security Top 10 #5)',

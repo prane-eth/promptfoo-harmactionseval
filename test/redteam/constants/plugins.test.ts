@@ -23,6 +23,7 @@ describe('plugins constants', () => {
       expect(DATASET_EXEMPT_PLUGINS).toContain('beavertails');
       expect(DATASET_EXEMPT_PLUGINS).toContain('cyberseceval');
       expect(DATASET_EXEMPT_PLUGINS).toContain('donotanswer');
+      expect(DATASET_EXEMPT_PLUGINS).toContain('harmactionseval');
       expect(DATASET_EXEMPT_PLUGINS).toContain('harmbench');
       expect(DATASET_EXEMPT_PLUGINS).toContain('pliny');
       expect(DATASET_EXEMPT_PLUGINS).toContain('toxic-chat');

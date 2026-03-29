@@ -94,6 +94,7 @@ export const GUARDRAILS_EVALUATION_PLUGINS = [
   'pliny',
   'donotanswer',
   'prompt-extraction',
+  'harmactionseval',
 
   // === HARMFUL CONTENT ===
   // WMD & Weapons
@@ -333,6 +334,7 @@ export const ADDITIONAL_PLUGINS = [
   'divergent-repetition',
   'donotanswer',
   'ferpa',
+  'harmactionseval',
   'harmbench',
   'toxic-chat',
   'imitation',
@@ -429,6 +431,7 @@ export const DATASET_EXEMPT_PLUGINS = [
   'beavertails',
   'cyberseceval',
   'donotanswer',
+  'harmactionseval',
   'harmbench',
   'pliny',
   'toxic-chat',

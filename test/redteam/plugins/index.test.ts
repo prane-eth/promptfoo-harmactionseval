@@ -133,6 +133,11 @@ describe('Plugins', () => {
         expect(plugin).toBeDefined();
       });
     });
+
+    it('should register HarmActionsEval', () => {
+      const plugin = Plugins.find((p) => p.key === 'harmactionseval');
+      expect(plugin).toBeDefined();
+    });
   });
 
   describe('plugin validation', () => {
