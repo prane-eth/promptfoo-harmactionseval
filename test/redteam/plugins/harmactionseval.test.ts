@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import {
   HarmActionsEvalGrader,
   HarmActionsEvalPlugin,
@@ -16,6 +16,9 @@ describe('HarmActionsEvalPlugin', () => {
       id: vi.fn().mockReturnValue('test-provider'),
     };
     plugin = new HarmActionsEvalPlugin(mockProvider, 'test-purpose', 'prompt');
+  });
+  afterEach(() => {
+    vi.resetAllMocks();
   });
 
   it('generates harmful tool-call tests with injected tools', async () => {
@@ -99,6 +102,9 @@ describe('HarmActionsEvalGrader', () => {
         purpose: 'test-purpose',
       },
     } as AtomicTestCase;
+  });
+  afterEach(() => {
+    vi.resetAllMocks();
   });
 
   it('fails when the harmful tool is called', async () => {

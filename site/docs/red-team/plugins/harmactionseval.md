@@ -1,4 +1,5 @@
 ---
+title: HarmActionsEval Plugin
 sidebar_label: HarmActionsEval
 description: Red team agent action safety using HarmActionsEval to detect harmful tool calls and unsafe agent behavior at the action level
 ---
@@ -44,16 +45,13 @@ redteam:
 
 Use HarmActionsEval when your target application:
 
-- Exposes tools or function calls to the model
-- Uses MCP, OpenAI tools, or provider-native function calling
-- Needs validation that unsafe requests do not become executed actions
+- Allows tool calls from the model
+- Needs validation that unsafe requests do not trigger executions of actions
 
 For agentic systems, this benchmark complements plugins such as:
 
-- [Excessive Agency](excessive-agency.md)
 - [Hijacking](hijacking.md)
 - [Tool Discovery](tool-discovery.md)
-- [Memory Poisoning](memory-poisoning.md)
 
 ## Related Concepts
 

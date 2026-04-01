@@ -335,6 +335,20 @@ export const PLUGINS = [
   },
   {
     category: 'Dataset',
+    description: 'Evaluates action-level safety of AI agents using the HarmActionsEval dataset',
+    label: 'harmful',
+    link: '/docs/red-team/plugins/harmactionseval/',
+    name: 'HarmActionsEval',
+    pluginId: 'harmactionseval',
+    applicationTypes: {
+      rag: false,
+      agent: true,
+      chat: false,
+    },
+    vulnerabilityType: 'harmful',
+  },
+  {
+    category: 'Dataset',
     description: 'Evaluates model safety responses using the NVIDIA Aegis dataset',
     label: 'harmful',
     link: '/docs/red-team/plugins/aegis/',

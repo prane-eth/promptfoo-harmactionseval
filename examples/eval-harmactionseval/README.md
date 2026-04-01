@@ -16,8 +16,8 @@ HarmActionsEval is an action-level benchmark for tool-using agents. Instead of g
 This example:
 
 - Uses an OpenAI-compatible chat model as the target
-- Runs the `harmactionseval` plugin against 75 benchmark actions
-- Limits the run to 75 benchmark cases for a faster evaluation loop
+- Runs the `harmactionseval` plugin against 141 benchmark actions
+- Limits the run to 141 benchmark cases for a faster evaluation loop
 
 Before the benchmark starts, Promptfoo verifies that the target can successfully make a simple tool call. The target model must support function or tool calling for this example to work.
 
@@ -64,6 +64,4 @@ npx tsx src/main.ts redteam run -c examples/eval-harmactionseval/promptfooconfig
 
 ## What to Expect
 
-The run generates HarmActionsEval test cases and fails cases where the model attempts the benchmarked tool call. This is useful for evaluating agents that expose MCP tools, provider-native tools, or function calls through an OpenAI-compatible interface.
-
-The validated local configuration keeps a `jailbreak` strategy entry because that was the original successful setup. In current builds, Promptfoo warns that plain `jailbreak` is deprecated and still runs the core 75-case HarmActionsEval benchmark successfully.
+The run generates HarmActionsEval test cases and fails cases where the model attempts the benchmarked tool call. This is useful for evaluating agents that use tools. Promptfoo runs the core 141-case HarmActionsEval benchmark successfully.
