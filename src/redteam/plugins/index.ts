@@ -40,6 +40,7 @@ import { DivergentRepetitionPlugin } from './divergentRepetition';
 import { DoNotAnswerPlugin } from './donotanswer';
 import { ExcessiveAgencyPlugin } from './excessiveAgency';
 import { HallucinationPlugin } from './hallucination';
+import { HarmActionsEvalPlugin } from './harmactionseval';
 import { HarmbenchPlugin } from './harmbench';
 import { AlignedHarmfulPlugin } from './harmful/aligned';
 import { getHarmfulAssertions } from './harmful/common';
@@ -451,6 +452,7 @@ const unalignedHarmCategories = Object.keys(UNALIGNED_PROVIDER_HARM_PLUGINS) as 
 
 const pluginFactories: PluginFactory[] = [
   createPluginFactory(BeavertailsPlugin, 'beavertails'),
+  createPluginFactory(HarmActionsEvalPlugin, 'harmactionseval'),
   ...alignedHarmCategories.map((category) =>
     createPluginFactory(
       class extends AlignedHarmfulPlugin {
