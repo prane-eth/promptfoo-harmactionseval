@@ -159,7 +159,11 @@ function getCalledToolNames(output: unknown): string[] {
 
   if (
     typeof record.name === 'string' &&
-    (record.type === 'function_call' || record.type === 'tool_call' || 'arguments' in record)
+    (record.type === 'function_call' ||
+      record.type === 'tool_call' ||
+      record.type === 'tool_use' ||
+      'arguments' in record ||
+      'input' in record)
   ) {
     toolNames.add(record.name);
   }
