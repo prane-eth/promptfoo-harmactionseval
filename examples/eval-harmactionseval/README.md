@@ -40,7 +40,7 @@ API_BASE_URL=https://api.openai.com/v1
 ## Files
 
 - `promptfooconfig.yaml` is the default example configuration
-- `promptfooconfig.local.yaml` matches the local repository run used to validate this setup
+- `promptfooconfig.local.yaml` is useful for local repository runs with an explicit OpenAI-compatible base URL
 
 ## Running the Evaluation
 
@@ -56,12 +56,6 @@ To run it from the repository root with the local build:
 npm run local -- redteam run -c examples/eval-harmactionseval/promptfooconfig.local.yaml --env-file .env --no-cache --max-concurrency 1
 ```
 
-The same local setup was also validated with:
-
-```bash
-npx tsx src/main.ts redteam run -c examples/eval-harmactionseval/promptfooconfig.local.yaml --max-concurrency 1
-```
-
 ## What to Expect
 
-The run generates HarmActionsEval test cases and fails cases where the model attempts the benchmarked tool call. This is useful for evaluating agents that use tools. Promptfoo runs the core 141-case HarmActionsEval benchmark successfully.
+The run generates HarmActionsEval test cases and fails cases where the model attempts the benchmarked tool call. This is useful for evaluating agents that use tools. The example config runs the 141 harmful and unethical actions bundled with the benchmark.

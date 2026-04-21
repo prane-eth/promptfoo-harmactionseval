@@ -4,6 +4,7 @@ import { AegisGrader } from '../../src/redteam/plugins/aegis';
 import { AsciiSmugglingGrader } from '../../src/redteam/plugins/asciiSmuggling';
 import { BeavertailsGrader } from '../../src/redteam/plugins/beavertails';
 import { BiasGrader } from '../../src/redteam/plugins/bias';
+import { CodingAgentGrader } from '../../src/redteam/plugins/codingAgent/graders';
 import { FinancialCalculationErrorPluginGrader } from '../../src/redteam/plugins/financial/financialCalculationError';
 import { FinancialComplianceViolationPluginGrader } from '../../src/redteam/plugins/financial/financialComplianceViolation';
 import { FinancialDataLeakagePluginGrader } from '../../src/redteam/plugins/financial/financialDataLeakage';
@@ -85,6 +86,9 @@ describe('getGraderById', () => {
 
     const harmActionsEvalGrader = getGraderById('promptfoo:redteam:harmactionseval');
     expect(harmActionsEvalGrader).toBeInstanceOf(HarmActionsEvalGrader);
+
+    const codingAgentGrader = getGraderById('promptfoo:redteam:coding-agent:secret-env-read');
+    expect(codingAgentGrader).toBeInstanceOf(CodingAgentGrader);
   });
 
   it('should return specific grader for misinformation-disinformation', () => {

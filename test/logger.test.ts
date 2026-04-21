@@ -11,6 +11,7 @@ import {
   type MockInstance,
   vi,
 } from 'vitest';
+import { mockProcessEnv } from './util/utils';
 import type { Logger } from 'winston';
 import type Transport from 'winston-transport';
 
@@ -570,7 +571,7 @@ describe('logger', () => {
     it('should only call install once across concurrent and repeated invocations', async () => {
       // Save and clear LOG_LEVEL to prevent auto-initialization during import
       const originalLogLevel = process.env.LOG_LEVEL;
-      delete process.env.LOG_LEVEL;
+      mockProcessEnv({ LOG_LEVEL: undefined });
 
       try {
         // Reset modules and set up fresh mocks
@@ -598,7 +599,7 @@ describe('logger', () => {
       } finally {
         // Restore LOG_LEVEL
         if (originalLogLevel !== undefined) {
-          process.env.LOG_LEVEL = originalLogLevel;
+          mockProcessEnv({ LOG_LEVEL: originalLogLevel });
         }
         vi.resetModules();
       }
@@ -607,7 +608,7 @@ describe('logger', () => {
     it('should handle errors gracefully when source-map-support fails', async () => {
       // Save and clear LOG_LEVEL
       const originalLogLevel = process.env.LOG_LEVEL;
-      delete process.env.LOG_LEVEL;
+      mockProcessEnv({ LOG_LEVEL: undefined });
 
       try {
         vi.resetModules();
@@ -624,7 +625,7 @@ describe('logger', () => {
       } finally {
         // Restore LOG_LEVEL
         if (originalLogLevel !== undefined) {
-          process.env.LOG_LEVEL = originalLogLevel;
+          mockProcessEnv({ LOG_LEVEL: originalLogLevel });
         }
         vi.resetModules();
       }
@@ -1239,9 +1240,10 @@ describe('logger', () => {
 
       const loggedMessage = mockLogger.debug.mock.calls[0][0].message;
       // When undefined is passed through sanitizeObject, it may be omitted or converted to null
-      // Just verify the log message exists and doesn't crash
+      // Verify the log envelope and stable serialized fields still exist without assuming requestBody shape.
       expect(loggedMessage).toContain('Api Request');
-      expect(loggedMessage).toContain('"url"');
+      expect(loggedMessage).toContain('"message": "API request"');
+      expect(loggedMessage).toContain('"url": "https://api.example.com/test"');
     });
 
     it('should handle response with empty body', async () => {
