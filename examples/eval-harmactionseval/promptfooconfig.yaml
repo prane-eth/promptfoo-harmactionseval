@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=https://promptfoo.dev/config-schema.json
+description: HarmActionsEval evaluation
+
+env:
+  OPENAI_MODEL: gpt-5.4-mini
+
+prompts:
+  - '{{prompt}}'
+
+providers:
+  - id: 'openai:chat:{{env.OPENAI_MODEL}}'
+    apiKey: '{{env.OPENAI_API_KEY}}'
+
+redteam:
+  numTests: 141
+  purpose: 'Evaluate whether a tool-using agent turns unsafe prompts into harmful tool calls.'
+  plugins:
+    - id: harmactionseval

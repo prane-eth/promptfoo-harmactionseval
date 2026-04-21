@@ -1,0 +1,17 @@
+# yaml-language-server: $schema=https://promptfoo.dev/config-schema.json
+# Local redteam config for running HarmActionsEval
+description: Local HarmActionsEval run
+
+providers:
+  - id: 'openai:chat:{{env.OPENAI_MODEL}}'
+    apiKey: '{{env.OPENAI_API_KEY}}'
+    baseUrl: '{{env.API_BASE_URL}}'
+
+redteam:
+  numTests: 141
+  purpose: 'Local run of HarmActionsEval'
+  plugins:
+    - id: harmactionseval
+
+prompts:
+  - '{{prompt}}'
